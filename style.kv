@@ -1,0 +1,841 @@
+<GetCashModal>:
+    title_: title_
+    from_input: from_input
+    to_input: to_input
+    size_hint: None, None
+    size: int(app.win_size[0]/2), int(app.win_size[1]/2)
+    MDCard:
+        BoxLayout:
+            padding: 20
+            orientation: 'vertical'
+            MDLabel:
+                size_hint: 1, None
+                height: 100
+                halign: 'center'
+                font_size: '32sp'
+                text: app.ru_['get_sum']
+
+            BoxLayout:
+                padding: 20
+                spacing: 10
+                size_hint: 1, 1
+                orientation: 'vertical'
+                BoxLayout:
+                    MDLabel:
+                        id: title_
+                        size_hint: 1, 1
+                        halign: 'center'
+                        font_size: '48sp'
+                        text: '0 UZS'
+                BoxLayout:
+                    size_hint: 1, 0.7
+                    padding: 10
+                    spacing: 10
+                    MDTextField:
+                        id: from_input
+                        hint_text: app.ru_['from']
+                        size_hint: 1, 1
+                        font_size: '32sp'
+                    MDTextField:
+                        id: to_input
+                        hint_text: app.ru_['to']
+                        size_hint: 1, 1
+                        font_size: '32sp'
+
+            BoxLayout:
+                size_hint: 1, 0.3
+                MDFlatButton:
+                    size_hint: 1, 1
+                    text: 'Cancel'
+                    font_size: '32sp'
+                    on_release:
+                        root.dismiss()
+                MDFlatButton:
+                    size_hint: 1, 1
+                    text: 'Get'
+                    font_size: '32sp'
+                    on_release:
+                        app.data_ok_sw(root)
+
+<UserAddModal>:
+    size_hint: None, None
+    size: int(app.win_size[0]/2), int(app.win_size[1]/2)
+    MDCard:
+        BoxLayout:
+            padding: 20
+            orientation: 'vertical'
+            MDLabel:
+                size_hint: 1, None
+                height: 100
+                halign: 'center'
+                font_size: '32sp'
+                text: 'Edit'
+            BoxLayout:
+                padding: 20
+                size_hint: 1, 1
+                orientation: 'vertical'
+                MDTextField:
+                    id: name
+                    size_hint: 1, 1
+                    hint_text: app.ru_['name']
+                MDTextField:
+                    id: p_type
+                    size_hint: 1, 1
+                    hint_text: app.ru_['type_']
+                    on_focus: if self.focus: root.menu.open()
+                MDTextField:
+                    id: about
+                    size_hint: 1, 1
+                    hint_text: app.ru_['about']
+                MDTextField:
+                    id: price
+                    size_hint: 1, 1
+                    hint_text: app.ru_['price']
+            BoxLayout:
+                size_hint: 1, 0.3
+                MDFlatButton:
+                    size_hint: 1, 1
+                    text: 'Cancel'
+                    on_release:
+                        root.dismiss()
+                MDFlatButton:
+                    size_hint: 1, 1
+                    text: 'OK'
+                    on_release:
+                        root.ok_sw(app)
+<ModalEdit>:
+    size_hint: None, None
+    size: int(app.win_size[0]/2), int(app.win_size[1]/2)
+    MDCard:
+        BoxLayout:
+            padding: 20
+            orientation: 'vertical'
+            MDLabel:
+                size_hint: 1, None
+                height: 100
+                halign: 'center'
+                font_size: '32sp'
+                text: 'Edit'
+            BoxLayout:
+                padding: 20
+                size_hint: 1, 1
+                orientation: 'vertical'
+                MDTextField:
+                    id: name
+                    size_hint: 1, 1
+                    hint_text: app.ru_['name']
+                MDTextField:
+                    id: p_type
+                    size_hint: 1, 1
+                    hint_text: app.ru_['type_']
+                    on_focus: if self.focus: root.menu.open()
+                MDTextField:
+                    id: about
+                    size_hint: 1, 1
+                    hint_text: app.ru_['about']
+                MDTextField:
+                    id: price
+                    size_hint: 1, 1
+                    hint_text: app.ru_['price']
+            BoxLayout:
+                size_hint: 1, 0.3
+                MDFlatButton:
+                    size_hint: 1, 1
+                    text: 'Cancel'
+                    on_release:
+                        root.dismiss()
+                MDFlatButton:
+                    size_hint: 1, 1
+                    text: 'OK'
+                    on_release:
+                        root.ok_sw(app)
+<ModalMenuType>:
+    size_hint: None, None
+    size: int(app.win_size[0]/2), int(app.win_size[1]/2)
+    MDCard:
+        BoxLayout:
+            padding: 20
+            orientation: 'vertical'
+            MDLabel:
+                size_hint: 1, None
+                height: 100
+                halign: 'center'
+                font_size: '32sp'
+                text: 'Menu Type'
+            BoxLayout:
+                Widget:
+                    size_hint: 0.5, 1
+                BoxLayout:
+                    orientation: 'vertical'
+                    Widget:
+                    MDTextField:
+                        id: fullname
+                        hint_text: app.ru_['name']
+                        size_hint: 1, None
+                        height: 150
+                    MDTextField:
+                        id: short_name
+                        hint_text: app.ru_['short_name']
+                        size_hint: 1, None
+                        height: 150
+                    Widget:
+                Widget:
+                    size_hint: 0.5, 1
+            BoxLayout:
+                size_hint: 1, 0.5
+                MDFlatButton:
+                    size_hint: 1, 1
+                    text: 'Cancel'
+                    on_release:
+                        root.dismiss()
+                MDFlatButton:
+                    size_hint: 1, 1
+                    text: 'OK'
+                    on_release:
+                        root.ok_sw(app)
+
+<ModalTableCount>:
+    count_input: count_input
+    size_hint: None, None
+    size: int(app.win_size[0]/2), int(app.win_size[1]/2)
+    MDCard:
+        BoxLayout:
+            padding: 20
+            orientation: 'vertical'
+            MDLabel:
+                size_hint: 1, None
+                height: 100
+                halign: 'center'
+                font_size: '32sp'
+                text: 'Table Count'
+            Widget:
+            BoxLayout:
+                Widget:
+                MDTextField:
+                    id: count_input
+                    halign: 'center'
+                    size_hint: None, None
+                    size: 100, 150
+                    font_size: '38sp'
+                    hint_text: app.ru_['count']
+                Widget:
+            Widget:
+            BoxLayout:
+                size_hint: 1, 0.5
+                MDFlatButton:
+                    size_hint: 1, 1
+                    text: 'Cancel'
+                    on_release:
+                        root.dismiss()
+                MDFlatButton:
+                    size_hint: 1, 1
+                    text: 'OK'
+                    on_release:
+                        root.ok_sw(app)
+
+<AnswerModal>:
+    count_txt: count_txt
+    price_sum_txt: price_sum_txt
+    size_hint: None, None
+    size: 720, 480
+    MDCard:
+        BoxLayout:
+            padding: 20
+            spacing: 5
+            orientation: 'vertical'
+            MDLabel:
+                id: product_name
+                size_hint: 1, None
+                height: 64
+                halign: 'center'
+                font_size: '32sp'
+            MDLabel:
+                id: price_sum_txt
+                size_hint: 1, None
+                halign: 'center'
+                font_size: '38sp'
+                text: ''
+            BoxLayout:
+                size_hint: 1, 0.75
+                MDFlatButton:
+                    size_hint: 1, 1
+                    on_release:
+                        root.remove_()
+                    MDLabel:
+                        text: '-'
+                        halign: 'center'
+                        font_size: '48sp'
+                MDLabel:
+                    id: count_txt
+                    size_hint: 1, 1
+                    font_size: '48sp'
+                    halign: 'center'
+                    valign: 'center'
+                    text: str(root.count)
+                MDFlatButton:
+                    size_hint: 1, 1
+                    on_release:
+                        root.add_()
+                    MDLabel:
+                        text: '+'
+                        halign: 'center'
+                        font_size: '48sp'
+            BoxLayout:
+                size_hint: 1, 0.3
+                MDFlatButton:
+                    size_hint: 1, 1
+                    text: 'Cancel'
+                    on_release:
+                        root.dismiss()
+                MDRaisedButton:
+                    size_hint: 1, 1
+                    text: 'OK'
+                    on_release:
+                        root.ok_sw()
+
+<ProductButton>:
+    size_hint: 1, None
+    height: 240
+    MDRoundFlatButton:
+        id: button
+        size_hint: 1, 1
+        padding: 20
+        on_release: app.add_win(root.product_id)
+        BoxLayout:
+            orientation: 'vertical'
+            MDLabel:
+                font_size: '36sp'
+                theme_text_color: "Custom"
+                text_color: .25, 0.25, .25, .8
+                text: root.name
+                halign: 'right'
+            MDLabel:
+                font_size: '30sp'
+                theme_text_color: "Custom"
+                text_color: .25, 0.25, .25, .8
+                text: root.price
+                halign: 'right'
+            MDLabel:
+                text: root.info
+                halign: 'right'
+
+<AddProductButton>:
+    size_hint: 1, None
+    height: 240
+    MDRoundFlatButton:
+        id: button
+        size_hint: 1, 1
+        padding: 20
+        on_release: app.add_menu_sw()
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 1, 1
+            MDLabel:
+                font_size: '50sp'
+                theme_text_color: "Custom"
+                text_color: .25, 0.25, .25, .8
+                text: '+'
+                halign: 'center'
+
+<MenuButton>:
+    padding: (0,0,20,0)
+    size_hint: 1, None
+    height: 100
+    on_release:
+        app.load_menu_by_type(root.type_name)
+
+    MDLabel:
+        font_style: 'H3'
+        size_hint: 1, 1
+        halign: 'right'
+        font_size: '30sp'
+        text: root.txt
+
+<AddMenuButton>:
+    padding: (0,0,20,0)
+    size_hint: 1, None
+    height: 120
+    on_release:
+        app.add_menu_type_sw()
+    MDLabel:
+        font_style: 'H3'
+        size_hint: 1, 1
+        halign: 'center'
+        font_size: '48sp'
+        text: "+"
+
+<MenuWin>:
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint: 1, None
+            height: 120
+            MDRectangleFlatButton:
+                id: table
+                size_hint: 1, 1
+                on_release:
+                    app.tb_screen_sw('main_tb_screen')
+                MDLabel:
+                    id: table_name
+                    text: 'Main Menu'
+                    halign: 'center'
+                    font_size: '36sp'
+        GridLayout:
+            size_hint: 1, 1
+            cols: 2
+            padding: 20
+            spacing: 10
+            ScrollView:
+                size_hint: 0.5, 1
+                scroll_timeout: 100
+                MDList:
+                    id: box_menu
+                    padding: 0
+                    spacing: 5
+            Screen:
+                ScrollView:
+                    MDList:
+                        id: menu_type
+                        scroll_timeout: 100
+                        padding: 0
+                        spacing: 5
+                        cols: 2
+
+<ScrollListItem>:
+    name_txt: name_txt
+    sum_txt: sum_txt
+    size_hint: 1, None
+    height: 80
+    BoxLayout:
+        size_hint: 1, 1
+        MDIconButton:
+            icon: 'delete'
+            size_hint: None, 1
+            width: 80
+            on_release:
+                app.delete_item_sw(root.i_id, True)
+        MDLabel:
+            id: name_txt
+            size_hint: 1, 1
+            text: root.name
+            halign: 'left'
+
+        MDLabel:
+            id: sum_txt
+            size_hint: None, 1
+            text: str(root.price_sum)
+            width: 140
+            halign: 'center'
+
+<TableWin>:
+    item_list: item_list
+    main_sum: main_sum
+    user_name: user_name
+    BoxLayout:
+        size_hint: 1, 1
+        padding: 10
+        orientation: 'vertical'
+        spacing: 10
+        BoxLayout:
+            size_hint: 1, None
+            height: 120
+            MDRectangleFlatButton:
+                size_hint: 1, 1
+                on_release:
+                    app.tb_screen_sw('main_tb_screen')
+                MDLabel:
+                    text: 'Main Menu'
+                    halign: 'center'
+                    font_size: '36sp'
+        GridLayout:
+            size_hint: 1, 0.5
+            cols: 2
+            spacing: 5
+            BoxLayout:
+                spacing: 5
+                padding: (15, 15, 15, 0)
+                orientation: 'vertical'
+                BoxLayout:
+                    size_hint: 1, .5
+                    MDLabel:
+                        id: table_name
+                        halign: 'center'
+                        font_size: '34sp'
+                BoxLayout:
+                    MDLabel:
+                        size_hint: 1, 1
+                        text: app.ru_['worker']
+                        font_size: '34sp'
+                        halign: 'left'
+                    MDLabel:
+                        id: user_name
+                        size_hint: 1, 1
+                        font_size: '34sp'
+                        halign: 'right'
+
+                BoxLayout:
+                    size_hint: 1, 1
+                    orientation: 'vertical'
+                    spacing: 5
+                    MDLabel:
+                        id: main_sum
+                        font_style: 'H3'
+                        size_hint: 1, 1
+                        halign: 'center'
+                        font_size: '48sp'
+                    MDRaisedButton:
+                        size_hint: 1, 1
+                        on_release:
+                            app.print_check()
+                        MDLabel:
+                            font_style: 'H3'
+                            size_hint: 1, 1
+                            halign: 'center'
+                            font_size: '30sp'
+                            text: app.ru_['close_account']
+            BoxLayout:
+                orientation: 'vertical'
+                ScrollView:
+                    size_hint: 1, 1
+                    scroll_timeout: 100
+                    MDList:
+                        id: item_list
+                        padding: 0
+
+                FloatLayout:
+                    MDBoxLayout:
+                        size_hint: None, None
+                        pos_hint: {'right': 1, 'bottom': 1}
+                        padding: 20
+                        MDIconButton:
+                            icon: 'img/add.png'
+                            size_hint: None, None
+                            size: '64dp', '64dp'
+                            on_release:
+                                app.load_menu()
+                                app.tb_screen_sw('menu_screen')
+
+
+<IconButton@MDFlatButton>
+    size_hint: 1, None
+    font_style: "Button"
+    size_hint_y: None
+    MDIcon:
+        halign: "left"
+        icon: "language-python"
+
+<Content>:
+    adaptive_height: True
+    orientation: 'vertical'
+    OneLineIconListItem:
+        text: app.ru_['add_table']
+        on_release: app.login_sw(0, 'add_table')
+
+        IconLeftWidget:
+            icon: 'img/edit.png'
+    OneLineIconListItem:
+        text: app.ru_['add_type']
+        on_release: app.login_sw(0, 'add_type')
+        IconLeftWidget:
+            icon: 'img/edit.png'
+
+    OneLineIconListItem:
+        text: app.ru_['add_product']
+        on_release: app.login_sw(0, 'add_menu')
+        IconLeftWidget:
+            icon: 'img/edit.png'
+
+<ContentNavigationDrawer>:
+    nav_list: nav_list
+    orientation: "vertical"
+    padding: "8dp"
+    spacing: "8dp"
+    AnchorLayout:
+        padding: (0, 20, 0, 0)
+        anchor_x: "left"
+        size_hint_y: None
+        height: avatar.height
+
+        Image:
+            id: avatar
+            size_hint: 1, None
+            height: "66dp"
+            source: "img/logo.png"
+    BoxLayout:
+        padding: (0, 30, 0, 0)
+        orientation: 'vertical'
+        OneLineIconListItem:
+            text: "Main Menu"
+            on_release:
+                app.tb_screen_sw('main_tb_screen')
+                app.display.ids.nav_drawer.set_state()
+
+            IconLeftWidget:
+                icon: 'img/home.png'
+        MDBoxLayout:
+            adaptive_height: True
+            id: nav_list
+            orientation: 'vertical'
+        OneLineIconListItem:
+            text: app.ru_['workers']
+            on_release:
+                app.login_sw(root, 'workers')
+            IconLeftWidget:
+                icon: 'img/workers.png'
+        OneLineIconListItem:
+            text: app.ru_['get_sum']
+            on_release:
+                app.cash_menu()
+            IconLeftWidget:
+                icon: 'img/cash.png'
+
+        Widget:
+            size_hint: 1, 1
+        BoxLayout:
+            MDFlatButton:
+                id: mode_switch
+                padding: 15
+                size_hint: 1, None
+                height: 64
+                on_release: app.mod_switcher()
+                MDLabel:
+                    size_hint: 1, 1
+                    text: 'Mode'
+                    font_size: '32sp'
+                    halign: 'center'
+
+
+        OneLineIconListItem:
+            text: "Exit"
+            on_release: app.exit_app()
+            IconLeftWidget:
+                icon: 'img/exit.png'
+<TBButton>:
+    size_hint: 1, None
+    height: 240
+    MDRoundFlatButton:
+        id: button
+        size_hint: 1, 1
+        padding: 20
+        on_release: app.login_sw(root.table_id, 'table')
+        BoxLayout:
+            orientation: 'vertical'
+            MDLabel:
+                font_size: '34sp'
+                theme_text_color: "Custom"
+                text_color: .25, 0.25, .25, .8
+                text: root.txt
+                halign: 'right'
+            MDLabel:
+                font_size: '20sp'
+                theme_text_color: "Custom"
+                text_color: .25, 0.25, .25, .8
+                text: root.user_name
+                halign: 'right'
+
+
+<AddTBButton>:
+    size_hint: 1, None
+    height: 240
+    MDRoundFlatButton:
+        id: button
+        size_hint: 1, 1
+        padding: 20
+        on_release: app.add_table_sw()
+        MDLabel:
+            font_size: '58sp'
+            theme_text_color: "Custom"
+            text_color: .25, 0.25, .25, .8
+            text: "+"
+            halign: 'center'
+
+<TableMain>:
+    table_list: table_list
+    ScrollView:
+        size_hint: 1, 1
+        GridLayout:
+            id: table_list
+            padding: 20
+            cols: 3
+            size_hint: 1, None
+            height: self.minimum_height
+            spacing: 15
+<Login>:
+    login_txt: login_txt
+    user_name: user_name
+    password_txt: password_txt
+    size_hint: None, None
+    size: 400, 320
+    MDCard:
+        size_hint: 1, 1
+        BoxLayout:
+            padding: (10, 10, 10, 10)
+            size_hint: 1, 1
+            spacing: 10
+            orientation: 'vertical'
+            MDLabel:
+                id: user_name
+                halign: 'center'
+                size_hint: 1, 1
+
+            BoxLayout:
+                padding: (25, 40, 25, 25)
+                spacing: 10
+                orientation: 'vertical'
+                size_hint: 1, 1
+
+                MDTextField:
+                    id: login_txt
+                    hint_text: 'Login'
+                    helper_text: 'Un correct Login'
+                    helper_text_mode: 'on_error'
+                MDTextField:
+                    id: password_txt
+                    hint_text: 'Password'
+                    helper_text: 'Un correct Password'
+                    helper_text_mode: 'on_error'
+            BoxLayout:
+                spacing: 10
+                MDFlatButton:
+                    size_hint: 1, None
+                    text: 'Cancel'
+                    on_release:
+                        root.dismiss()
+
+                MDRaisedButton:
+                    size_hint: 1, None
+                    text: 'Ok'
+                    on_release:
+                        app.user_open(root.table_id, root)
+
+<UserScreenItem>:
+    user_id_txt: user_id_txt
+    login_txt: login_txt
+    password_txt: password_txt
+    name_txt: name_txt
+    validate_txt: validate_txt
+
+    size_hint: 1, None
+    height: 64
+    padding: (10, 2, 10, 2)
+    BoxLayout:
+        padding: (10, 2, 10, 2)
+        spacing: 15
+        BoxLayout:
+            size_hint: None, None
+            size: 64, 64
+            MDIconButton:
+                size_hint: None, None
+                size: 64, 64
+                icon: 'delete'
+                on_release:
+                    app.delete_item_sw(root.user_id, False )
+
+        MDTextField:
+            id: user_id_txt
+            size_hint: None, 1
+            hint_text: 'ID'
+        MDTextField:
+            id: login_txt
+            size_hint: 1, 1
+            hint_text: 'Login'
+        MDTextField:
+            id: password_txt
+            size_hint: 1, 1
+            hint_text: 'Password'
+        MDTextField:
+            id: name_txt
+            size_hint: 1, 1
+            hint_text: 'Name'
+        MDTextField:
+            id: validate_txt
+            size_hint: 1, 1
+            hint_text: 'Validate'
+        BoxLayout:
+            size_hint: None, None
+            size: 64, 64
+            MDIconButton:
+                size_hint: None, None
+                size: 64, 64
+                icon: 'check'
+                on_release:
+                    app.edit_users(root.user_id, root)
+<AnswerDialog>:
+    size_hint: None, None
+    size: 480, 320
+    MDCard:
+        padding: 20
+        BoxLayout:
+            orientation: 'vertical'
+            BoxLayout:
+                MDLabel:
+                    valign: 'center'
+                    halign: 'center'
+                    size_hint: 1, 1
+                    text: app.ru_['sure']
+            BoxLayout:
+                spacing: 10
+                size_hint: 1, None
+                height: 80
+                MDFlatButton:
+                    size_hint: 1, 1
+                    text: 'Cancel'
+                    on_release:
+                        root.dismiss()
+                MDRaisedButton:
+                    size_hint: 1, 1
+                    text: 'Ok'
+                    on_release:
+                        root.func(root.i_id)
+                        root.dismiss()
+
+<UserScreen>:
+    BoxLayout:
+        MDList:
+            id: user_box
+            size_hint: 1, 1
+            spacing: 5
+            orientation: 'vertical'
+    FloatLayout:
+        MDBoxLayout:
+            size_hint: None, None
+            pos_hint: {'right': 1, 'bottom': 1}
+            padding: 20
+            MDIconButton:
+                icon: 'img/add.png'
+                size_hint: None, None
+                size: '64dp', '64dp'
+                on_release:
+                    app.add_user()
+
+
+
+Screen:
+    nav_drawer: nav_drawer
+    NavigationLayout:
+    Screen:
+        BoxLayout:
+            orientation: 'vertical'
+            MDToolbar:
+                id: toolbar_
+                elevation: 10
+                left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
+            ScreenManager:
+                id: main
+                TableMain:
+                    id: tables_screen
+                    name: 'main_tb_screen'
+                UserScreen:
+                    id: user_screen
+                    name: 'workers'
+                TableWin:
+                    id: tb_screen
+                    name: 'tb_screen'
+                MenuWin:
+                    id: menu_screen
+                    name: 'menu_screen'
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            ContentNavigationDrawer:
+                id: nav_drawer_
